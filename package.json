@@ -1,0 +1,43 @@
+{
+  "name": "xboot",
+  "version": "1.0.0",
+  "description": "构建启动引导环境",
+  "bin": {
+    "xboot": "bin/xboot.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiba-zhao/xboot.git"
+  },
+  "keywords": [
+    "boot",
+    "loader"
+  ],
+  "author": "kiba.x.zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kiba-zhao/xboot/issues"
+  },
+  "homepage": "https://github.com/kiba-zhao/xboot#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.17",
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^14.14.10",
+    "jest": "^26.6.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "globby": "^11.0.1",
+    "lodash": "^4.17.20"
+  }
+}
