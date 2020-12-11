@@ -9,15 +9,15 @@
 'use strict';
 
 const { Boot } = require('..');
-const pkg = require('../package.json');
+const { pkg } = require('../lib/utils');
 const { program } = require('commander');
 program.version(pkg.version);
 
 program
-  .option('-a, --all', 'load all match files',false)
   .option('-d, --dir <type>', 'target directory',process.cwd())
+  .option('-a, --all', 'load all match files',true)
+  .option('-p, --plugin', 'load plugin files',true);
   .option('-r, --reverse', 'reverse load base files ',false)
-  .option('-p, --plugin', 'load plugin files',false);
 
 program.parse(process.argv);
 
