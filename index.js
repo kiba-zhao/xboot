@@ -6,6 +6,6 @@
  */
 'use strict';
 
-const Boot = require('./lib/boot');
+const BootLoader = require('./lib/boot_loader');
 
-exports.Boot = Boot;
+exports.BootLoader = BootLoader;

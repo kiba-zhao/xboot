@@ -8,16 +8,16 @@
  */
 'use strict';
 
-const { Boot } = require('..');
+const { BootLoader } = require('..');
 const { pkg } = require('../lib/utils');
 const { program } = require('commander');
 program.version(pkg.version);
 
 program
   .option('-d, --dir <type>', 'target directory',process.cwd())
-  .option('-a, --all', 'load all match files',true)
   .option('-p, --plugin', 'load plugin files',true);
   .option('-r, --reverse', 'reverse load base files ',false)
+  .option('-s, --settings <type>', 'patterns of settings file')
 
 program.parse(process.argv);
 
@@ -28,4 +28,5 @@ else
   patterns.push(`${pkg.name}.js`);
 
 const {all,...opts} = program.opts();
-(new Boot(patterns,opts)).init(()=>all);
+const loader = (new BootLoader(patterns,program.opts()));
+loader.forEach(()=>());
