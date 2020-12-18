@@ -14,19 +14,19 @@ const { program } = require('commander');
 program.version(pkg.version);
 
 program
-  .option('-d, --dir <type>', 'target directory',process.cwd())
-  .option('-p, --plugin', 'load plugin files',true);
-  .option('-r, --reverse', 'reverse load base files ',false)
-  .option('-s, --settings <type>', 'patterns of settings file')
+  .option('-d, --dir <type>', 'target directory', process.cwd())
+  .option('-p, --plugin', 'load plugin files', true)
+  .option('-r, --reverse', 'reverse load base files ', false)
+  .option('-s, --settings <type>', 'patterns of settings file');
 
 program.parse(process.argv);
 
-let patterns = [];
-if(program.args.length>0)
+const patterns = [];
+if (program.args.length > 0) {
   patterns.push(...program.args);
-else
+} else {
   patterns.push(`${pkg.name}.js`);
+}
 
-const {all,...opts} = program.opts();
-const loader = (new BootLoader(patterns,program.opts()));
-loader.forEach(()=>());
+const loader = (new BootLoader(patterns, program.opts()));
+loader.forEach(() => {});
