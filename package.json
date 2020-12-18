@@ -6,17 +6,18 @@
     "xboot": "bin/xboot.js"
   },
   "main": "index.js",
-  "scripts": {
+  "types":"typings/index.d.ts",
+  "scripts": {    
     "build":"tsc -d",
     "build:w":"tsc -d -w",
     "test": "jest"
   },
   "files": [
+    "dist",
     "package.json",
     "bin",
     "lib",
-    "index.js",
-    "index.d.ts"
+    "index.js"
   ],
   "repository": {
     "type": "git",
