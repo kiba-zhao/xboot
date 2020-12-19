@@ -1,6 +1,6 @@
 export = PluginModuleLoader;
 declare class PluginModuleLoader extends Loader {
-    constructor(patterns: any, modulesOpts: any);
+    constructor(patterns: any, modulesOpts: any, opts: any);
     [Symbol.iterator](): Generator<any, void, unknown>;
     [PROPERTY_MODULE_LOADER]: ModuleLoader;
 }

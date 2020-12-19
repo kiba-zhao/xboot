@@ -17,7 +17,8 @@ program
   .option('-d, --dir <type>', 'target directory', process.cwd())
   .option('-p, --plugin', 'load plugin files', true)
   .option('-r, --reverse', 'reverse load base files ', false)
-  .option('-s, --settings <type>', 'patterns of settings file');
+  .option('-s, --settings <type>', 'patterns of settings file')
+  .option('-m, --mode <type>', 'boot loader mode', pkg.name);
 
 program.parse(process.argv);
 
