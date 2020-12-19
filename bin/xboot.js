@@ -14,11 +14,12 @@ const { program } = require('commander');
 program.version(pkg.version);
 
 program
-  .option('-d, --dir <type>', 'target directory', process.cwd())
-  .option('-p, --plugin', 'load plugin files', true)
-  .option('-r, --reverse', 'reverse load base files ', false)
-  .option('-s, --settings <type>', 'patterns of settings file')
-  .option('-m, --mode <type>', 'boot loader mode', pkg.name);
+  .option('-k, --key <type>', 'boot load unique key')
+  .option('-c, --chdir <type>', 'change directory')
+  .option('-p, --plugin', 'load plugin files')
+  .option('-r, --reverse', 'reverse load base files ')
+  .option('-s, --settings <type>', 'settings file name')
+  .option('-m, --mode <type>', 'boot loader mode');
 
 program.parse(process.argv);
 
