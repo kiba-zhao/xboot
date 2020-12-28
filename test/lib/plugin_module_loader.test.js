@@ -6,19 +6,51 @@
  */
 'use strict';
 
-// const path = require('path');
-// const PluginModuleLoader = require('@/lib/plugin_module_loader');
+const path = require('path');
+const PluginModuleLoader = require('@/lib/plugin_module_loader');
 
-// const APP_PATH = path.join(__dirname, '..', 'fixtures', 'apps', 'pluginModuleTest');
-// const PLUGIN_PATH = path.join(__dirname, '..', 'fixtures', 'plugins', 'pluginModuleTest');
-// const PLUGIN_MODULE_ENTRY = require('../fixtures/plugins/pluginModuleTest/module_entry');
-
+const APP_PATH = path.join(__dirname, '..', 'fixtures', 'apps', 'pluginModuleTest');
+const NON_APP_PATH = path.join(__dirname, '..', 'fixtures', 'apps', 'nonPluginModuleTest');
+const PLUGIN_MODULE_ENTRY = require('../fixtures/node_modules/pluginModuleTest/module_entry');
+const PLUGIN_MODULE_ENTRY_A = require('../fixtures/plugins/pluginModuleTestA/module_entry');
+const PLUGIN_MODULE_ENTRY_B = require('../fixtures/plugins/pluginModuleTestB/module_entry');
+const PLUGIN_MODULE_ENTRY_C = require('../fixtures/plugins/pluginModuleTestC/module_entry');
+const PLUGIN_MODULE_ENTRY_D = require('../fixtures/plugins/pluginModuleTestD/module_entry');
 
 describe('lib/plugin_module_loader', () => {
 
-  // it('load entry', () => {
-  //   const patterns = 'module_entry.js';
+  it('load entry', () => {
+    const patterns = 'module_entry.js';
+    const modulesOpts = [{ cwd: APP_PATH, plugin: 'plugin.js' }, { cwd: NON_APP_PATH, plugin: 'plugin.js' }];
+    const loader = new PluginModuleLoader(patterns, modulesOpts);
+    const modules = [];
+    for (const m of loader) {
+      modules.push(m);
+    }
 
-  // });
+    expect(modules.length).toBe(5);
+    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[4].content).toEqual(PLUGIN_MODULE_ENTRY_D);
+
+  });
+
+  it('filter entry with mode', () => {
+    const patterns = 'module_entry.js';
+    const modulesOpts = [{ cwd: APP_PATH, plugin: 'plugin.js' }, { cwd: NON_APP_PATH, plugin: 'plugin.js' }];
+    const loader = new PluginModuleLoader(patterns, modulesOpts, { mode: 'test' });
+    const modules = [];
+    for (const m of loader) {
+      modules.push(m);
+    }
+
+    expect(modules.length).toBe(4);
+    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+  });
 
 });

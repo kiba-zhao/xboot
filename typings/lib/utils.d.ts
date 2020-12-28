@@ -5,7 +5,7 @@ import { isBoolean } from "lodash/common/lang";
 import { isPlainObject } from "lodash/common/lang";
 import { isFunction } from "lodash/common/lang";
 import readPkg = require("read-pkg");
-export function resolveModule(modulePath: any, opts: any): string;
+export function resolveModule(modulePath: any, opts: any): any;
 export function loadMatchedModules(patterns: any, ...modulesOpts: any[]): Generator<{
     path: string;
     content: any;
