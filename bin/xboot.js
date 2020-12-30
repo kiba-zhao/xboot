@@ -14,10 +14,9 @@ const { program } = require('commander');
 program.version(pkg.version);
 
 program
-  .option('-k, --key <type>', 'boot load unique key')
-  .option('-c, --chdir <type>', 'change directory')
-  .option('-p, --plugin', 'load plugin files')
-  .option('-r, --reverse', 'reverse load base files ')
+  .option('-d, --chdir <type>', 'change directory')
+  .option('--no-plugin', 'never load plugin files')
+  .option('-r, --reverse', 'reverse load base files')
   .option('-s, --settings <type>', 'settings file name')
   .option('-m, --mode <type>', 'boot loader mode');
 

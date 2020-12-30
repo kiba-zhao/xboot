@@ -4,6 +4,7 @@ import { isArray } from "lodash/common/lang";
 import { isBoolean } from "lodash/common/lang";
 import { isPlainObject } from "lodash/common/lang";
 import { isFunction } from "lodash/common/lang";
+import { defaults } from "lodash/common/object";
 import readPkg = require("read-pkg");
 export function resolveModule(modulePath: any, opts: any): any;
 export function loadMatchedModules(patterns: any, ...modulesOpts: any[]): Generator<{
@@ -12,4 +13,4 @@ export function loadMatchedModules(patterns: any, ...modulesOpts: any[]): Genera
     cwd: any;
 }, void, unknown>;
 export function isPatterns(val: any): boolean;
-export { isString, isArray, isBoolean, isPlainObject, isFunction, readPkg };
+export { isString, isArray, isBoolean, isPlainObject, isFunction, defaults, readPkg };
