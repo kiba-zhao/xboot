@@ -17,5 +17,5 @@ exports.A = {
 
 exports.C = {
   package: '../../plugins/pluginModuleTestC',
-  settings: 'setting.js',
+  config: 'setting.js',
 };

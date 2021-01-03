@@ -17,7 +17,7 @@ program
   .option('-d, --chdir <type>', 'change directory')
   .option('--no-plugin', 'never load plugin files')
   .option('-r, --reverse', 'reverse load base files')
-  .option('-s, --settings <type>', 'settings file name')
+  .option('-c, --config <type>', 'configure file patterns')
   .option('-m, --mode <type>', 'boot loader mode');
 
 program.parse(process.argv);

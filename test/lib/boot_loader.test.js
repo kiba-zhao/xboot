@@ -19,7 +19,7 @@ describe('lib/boot_loader', () => {
 
   it('load entry', () => {
     const patterns = 'boot_entry.js';
-    const opts = { settings: 'xboot.settings.js', chdir: APP_PATH };
+    const opts = { config: 'xboot.config.js', chdir: APP_PATH };
 
     const loader = new BootLoader(patterns, opts);
     const modules = [];
@@ -33,7 +33,7 @@ describe('lib/boot_loader', () => {
 
   it('load engine entry and plugin entry', () => {
     const patterns = 'boot_entry.js';
-    const opts = { settings: 'xboot.settings.js', chdir: APP_ENGINE_PATH };
+    const opts = { config: 'xboot.config.js', chdir: APP_ENGINE_PATH };
 
     const loader = new BootLoader(patterns, opts);
     const modules = [];
@@ -50,7 +50,7 @@ describe('lib/boot_loader', () => {
 
   it('load engine entry', () => {
     const patterns = 'boot_entry.js';
-    const opts = { settings: 'xboot.settings.js', chdir: APP_ENGINE_PATH, plugin: false };
+    const opts = { config: 'xboot.config.js', chdir: APP_ENGINE_PATH, plugin: false };
 
     const loader = new BootLoader(patterns, opts);
     const modules = [];

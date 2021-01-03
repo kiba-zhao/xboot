@@ -8,15 +8,15 @@
 
 exports.B = {
   package: '../../plugins/pluginModuleTestB',
-  settings: 'plugin.setting.js',
+  config: 'plugin.setting.js',
 };
 
 exports.C = {
   package: '../../plugins/pluginModuleTestC',
-  settings: 'plugin.setting.js',
+  config: 'plugin.setting.js',
 };
 
 exports.D = {
   package: '../../plugins/pluginModuleTestD',
-  settings: 'setting.js',
+  config: 'setting.js',
 };
