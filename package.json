@@ -36,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/kiba-zhao/xboot/issues"
   },
-  "homepage": "https://github.com/kiba-zhao/xboot#readme",
+  "homepage": "https://github.com/kiba-zhao/xboot",
   "devDependencies": {
     "@types/jest": "^26.0.17",
     "@types/lodash": "^4.14.165",
