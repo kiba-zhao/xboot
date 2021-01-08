@@ -6,6 +6,11 @@
  */
 'use strict';
 
+/**
+ * @module xboot
+ */
+
 const BootLoader = require('./lib/boot_loader');
 
+/** BootLoader. */
 exports.BootLoader = BootLoader;
