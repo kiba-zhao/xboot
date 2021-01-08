@@ -1,5 +1,5 @@
 # xboot #
-nodejs下引导加载模块工具．用于根据在engine包(父级包)以及plugin包中加载匹配的模块文件．类似[eggjs](https://eggjs.org/zh-cn/)中的`FileLoader`
+nodejs下引导加载模块工具．用于在当前项目，项目的engine包(父级包)以及plugin包中加载匹配的模块文件．类似[eggjs](https://eggjs.org/zh-cn/)中的`FileLoader`．
 
 ## Install ##
 
