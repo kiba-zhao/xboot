@@ -1,6 +1,6 @@
 {
   "name": "xboot",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "模块的启动引导加载",
   "bin": {
     "xboot": "bin/xboot.js"
@@ -8,7 +8,7 @@
   "main": "index.js",
   "types": "typings/index.d.ts",
   "scripts": {
-    "docs":"jsdoc -c conf.json",
+    "docs": "jsdoc -c conf.json",
     "build": "tsc -d",
     "build:w": "tsc -d -w",
     "lint": "eslint --fix .",
