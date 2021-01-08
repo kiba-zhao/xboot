@@ -14,6 +14,7 @@ xboot默认从执行目录下的`xboot.config.js`中，获取engine以及plugin�
 
 ``` javascript
 // {cwd}/xboot.config.js
+
 module.exports = {
     engine:'server-blocks',  //父engine包名称或包绝对路径
     plugin:'plugin.js'  //插件设置文件
@@ -26,6 +27,7 @@ xboot根据配置的plugin内容，来匹配的插件设置文件．根据插件
 
 ``` javascript
 // {cwd}/plugin.js
+
 exports.koa = {
     package:'xkoa',
     modes:['koa']  // 匹配模式
@@ -38,6 +40,8 @@ exports.koa = {
 支持plugin包内通过配置文件定义插件依赖，以及匹配模式等属性
 
 ``` javascript
+// {cwd}/node_modules/pluginA/plugin.js
+
 module.exports = {
     modes:['koa']  // 匹配模式
     dependencies:['xprovider'],   //　依赖插件
