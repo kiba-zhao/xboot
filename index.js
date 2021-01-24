@@ -10,17 +10,23 @@
  * @module xboot
  */
 
+
 const BootLoader = require('./lib/boot_loader');
 const { setup } = require('./lib/utils');
 
-/** BootLoader. */
+/**
+ * @type {BootLoader}
+ */
 exports.BootLoader = BootLoader;
 
-/** setup. */
+/**
+ * @type {setup}
+ */
 exports.setup = setup;
 
 /**
  * 创建引导加载器
+ * @static
  * @param {Array<String> | String} patterns 引导文件匹配模式
  * @param {Object} context 模块引导上下文缓存字典
  * @param {BootLoaderOpts} opts 引导加载器可选项
