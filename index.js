@@ -11,6 +11,24 @@
  */
 
 const BootLoader = require('./lib/boot_loader');
+const { setup } = require('./lib/utils');
 
 /** BootLoader. */
 exports.BootLoader = BootLoader;
+
+/** setup. */
+exports.setup = setup;
+
+/**
+ * 创建引导加载器
+ * @param {Array<String> | String} patterns 引导文件匹配模式
+ * @param {Object} context 模块引导上下文缓存字典
+ * @param {BootLoaderOpts} opts 引导加载器可选项
+ * @return {BootLoader} 引导加载对象实例
+ */
+function createBootLoader(patterns, context, opts = {}) {
+  const loader = new BootLoader(patterns, { ...opts, context });
+  return loader;
+}
+
+exports.createBootLoader = createBootLoader;

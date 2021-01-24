@@ -53,4 +53,53 @@ describe('lib/plugin_module_loader', () => {
     expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
   });
 
+  it('load entry with context', () => {
+    const patterns = 'module_entry.js';
+    const modulesOpts = [{ cwd: APP_PATH, plugin: 'plugin.js' }, { cwd: NON_APP_PATH, plugin: 'plugin.js' }];
+    const context = {};
+    const loader = new PluginModuleLoader(patterns, modulesOpts, { context });
+    const loaderWithContext = new PluginModuleLoader(patterns, [{ cwd: '' }], { context });
+    const modules = [];
+    for (const m of loader) {
+      modules.push(m);
+    }
+    let count = 0;
+    for (const mc of loaderWithContext) {
+      expect(mc).toEqual(modules[count++]);
+    }
+
+    expect(modules.length).toBe(count);
+    expect(modules.length).toBe(5);
+    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[4].content).toEqual(PLUGIN_MODULE_ENTRY_D);
+
+  });
+
+  it('filter entry with mode', () => {
+    const patterns = 'module_entry.js';
+    const modulesOpts = [{ cwd: APP_PATH, plugin: 'plugin.js' }, { cwd: NON_APP_PATH, plugin: 'plugin.js' }];
+    const context = {};
+    const loader = new PluginModuleLoader(patterns, modulesOpts, { mode: 'test', context });
+    const loaderWithContext = new PluginModuleLoader(patterns, [{ cwd: '' }], { mode: 'test', context });
+    const modules = [];
+    for (const m of loader) {
+      modules.push(m);
+    }
+    let count = 0;
+    for (const mc of loaderWithContext) {
+      expect(mc).toEqual(modules[count++]);
+    }
+
+    expect(modules.length).toBe(count);
+    expect(modules.length).toBe(4);
+    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+  });
+
+
 });

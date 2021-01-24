@@ -82,4 +82,11 @@ export function loadMatchedModules(patterns: Array<string> | string, ...modulesO
  * @return {Boolean} 是否为匹配模式参数
  */
 export function isPatterns(val: any): boolean;
+/**
+ * 初始化模块函数
+ * @param {Module} module 加载的模块对象
+ * @param {Array<any>} args 初始化参数
+ */
+export function setup(module: Module, ...args: Array<any>): void;
+declare const Module: Function;
 export { isString, isArray, isBoolean, isPlainObject, isFunction, defaults, readPkg };

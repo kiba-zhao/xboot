@@ -45,7 +45,7 @@ declare class PluginModuleLoader extends Loader {
      * 类实例迭代器方法
      * @yields {any} 加载模块项
      */
-    [Symbol.iterator](): Generator<any, void, undefined>;
+    [Symbol.iterator](): Generator<any, void, any>;
 }
 declare namespace PluginModuleLoader {
     export { PluginConfig, PluginSettings };

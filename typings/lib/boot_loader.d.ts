@@ -12,6 +12,7 @@ declare class BootLoader extends Loader {
      * @property {Boolean} reverse 是否逆序加载
      * @property {Array<String> | String} plugin 插件设置文件匹配模式
      * @property {String} mode 引导过滤模式
+     * @property {String} context 上下文字典
      */
     /**
      * 构造方法
@@ -39,12 +40,16 @@ declare class BootLoader extends Loader {
          * 引导过滤模式
          */
         mode: string;
+        /**
+         * 上下文字典
+         */
+        context: string;
     });
     /**
      * 类实例迭代器方法
      * @yields {any} 加载模块项
      */
-    [Symbol.iterator](): Generator<any, void, undefined>;
+    [Symbol.iterator](): Generator<any, void, any>;
 }
 declare namespace BootLoader {
     export { ProfileOpts, ChildProfileOpts, Profile };

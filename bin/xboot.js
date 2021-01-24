@@ -8,7 +8,9 @@
  */
 'use strict';
 
-const { BootLoader } = require('..');
+const Package = require('..');
+const { createBootLoader, setup } = Package;
+
 const { pkg } = require('../lib/utils');
 const { program } = require('commander');
 program.version(pkg.version);
@@ -29,5 +31,6 @@ if (program.args.length > 0) {
   patterns.push(`${pkg.name}.js`);
 }
 
-const loader = (new BootLoader(patterns, program.opts()));
-loader.forEach(() => {});
+const context = {};
+const loader = createBootLoader(patterns, context, program.opts());
+loader.forEach(_ => setup(_, context, Package));
