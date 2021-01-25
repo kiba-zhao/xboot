@@ -33,4 +33,4 @@ if (program.args.length > 0) {
 
 const context = {};
 const loader = createBootLoader(patterns, context, program.opts());
-loader.forEach(_ => setup(_, context, Package));
+loader.forEach(_ => setup(_, Package, context));
