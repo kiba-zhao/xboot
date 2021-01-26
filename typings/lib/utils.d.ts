@@ -33,14 +33,12 @@ export type Module = {
      */
     cwd: string;
 };
-export const pkg: readPkg.NormalizedPackageJson;
 import { isString } from "lodash/common/lang";
 import { isArray } from "lodash/common/lang";
 import { isBoolean } from "lodash/common/lang";
 import { isPlainObject } from "lodash/common/lang";
 import { isFunction } from "lodash/common/lang";
 import { defaults } from "lodash/common/object";
-import readPkg = require("read-pkg");
 /**
  * 模块解析可选项
  * @typedef {Object} resolveModuleOpts
@@ -89,4 +87,4 @@ export function isPatterns(val: any): boolean;
  */
 export function setup(module: Module, ...args: Array<any>): void;
 declare const Module: Function;
-export { isString, isArray, isBoolean, isPlainObject, isFunction, defaults, readPkg };
+export { pkg, isString, isArray, isBoolean, isPlainObject, isFunction, defaults };

@@ -8,15 +8,16 @@
 
 exports.B = {
   package: '../../plugins/pluginModuleTestB',
-  config: 'plugin.setting.js',
 };
 
 exports.C = {
   package: '../../plugins/pluginModuleTestC',
-  config: 'plugin.setting.js',
+  dependencies: [ 'B' ],
+  modes: [ 'test', 'dev' ],
 };
 
 exports.D = {
   package: '../../plugins/pluginModuleTestD',
-  config: 'setting.js',
+  optionalDependencies: [ 'C' ],
+  modes: [ 'dev' ],
 };

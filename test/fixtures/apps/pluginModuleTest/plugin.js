@@ -10,12 +10,10 @@ exports.package = {
   package: 'pluginModuleTest',
 };
 
-
 exports.A = {
   package: '../../plugins/pluginModuleTestA',
 };
 
 exports.C = {
   package: '../../plugins/pluginModuleTestC',
-  config: 'setting.js',
 };
