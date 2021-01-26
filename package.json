@@ -1,6 +1,6 @@
 {
   "name": "xboot",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "模块的启动引导加载",
   "bin": {
     "xboot": "bin/xboot.js"
