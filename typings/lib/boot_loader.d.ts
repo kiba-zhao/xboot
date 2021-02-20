@@ -10,6 +10,7 @@ declare class BootLoader extends Loader {
      * @property {Array<String> | String} config 配置文件匹配模式
      * @property {String} chdir 引导运行目录
      * @property {Boolean} reverse 是否逆序加载
+     * @property {Boolean} expand 是否展开目录
      * @property {Array<String> | String} plugin 插件设置文件匹配模式
      * @property {String} mode 引导过滤模式
      * @property {String} context 上下文字典
@@ -32,6 +33,10 @@ declare class BootLoader extends Loader {
          * 是否逆序加载
          */
         reverse: boolean;
+        /**
+         * 是否展开目录
+         */
+        expand: boolean;
         /**
          * 插件设置文件匹配模式
          */

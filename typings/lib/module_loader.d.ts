@@ -14,6 +14,7 @@ declare class ModuleLoader extends Loader {
      * @typedef {Object} ModuleLoaderOpts
      * @property {Boolean} reverse 是否逆序加载
      * @property {Array<String> | String} mode 匹配模式
+     * @property {Boolean} expand 是否展开目录
      */
     /**
      * 构造方法
@@ -35,6 +36,10 @@ declare class ModuleLoader extends Loader {
          * 匹配模式
          */
         mode: Array<string> | string;
+        /**
+         * 是否展开目录
+         */
+        expand: boolean;
     });
     /**
      * 类实例迭代器方法
@@ -48,7 +53,9 @@ declare class ModuleLoader extends Loader {
          */
         cwd: string;
     }[];
+    [PROPERTY_EXPAND]: boolean;
 }
 import Loader = require("./loader");
 declare const PROPERTY_PATTERNS: unique symbol;
 declare const PROPERTY_MODULES_OPTS: unique symbol;
+declare const PROPERTY_EXPAND: unique symbol;

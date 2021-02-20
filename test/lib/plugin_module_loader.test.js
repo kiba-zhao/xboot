@@ -29,11 +29,16 @@ describe('lib/plugin_module_loader', () => {
     }
 
     expect(modules.length).toBe(5);
-    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
-    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
-    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
-    expect(modules[4].content).toEqual(PLUGIN_MODULE_ENTRY_D);
+    expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[0].plugin).toBeTruthy();
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[1].plugin).toBeTruthy();
+    expect(modules[2].module).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[2].plugin).toBeTruthy();
+    expect(modules[3].module).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[3].plugin).toBeTruthy();
+    expect(modules[4].module).toEqual(PLUGIN_MODULE_ENTRY_D);
+    expect(modules[4].plugin).toBeTruthy();
 
   });
 
@@ -47,10 +52,10 @@ describe('lib/plugin_module_loader', () => {
     }
 
     expect(modules.length).toBe(4);
-    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
-    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
-    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].module).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].module).toEqual(PLUGIN_MODULE_ENTRY_C);
   });
 
   it('load entry with context', () => {
@@ -70,11 +75,11 @@ describe('lib/plugin_module_loader', () => {
 
     expect(modules.length).toBe(count);
     expect(modules.length).toBe(5);
-    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
-    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
-    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
-    expect(modules[4].content).toEqual(PLUGIN_MODULE_ENTRY_D);
+    expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].module).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].module).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[4].module).toEqual(PLUGIN_MODULE_ENTRY_D);
 
   });
 
@@ -95,11 +100,10 @@ describe('lib/plugin_module_loader', () => {
 
     expect(modules.length).toBe(count);
     expect(modules.length).toBe(4);
-    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY_A);
-    expect(modules[2].content).toEqual(PLUGIN_MODULE_ENTRY_B);
-    expect(modules[3].content).toEqual(PLUGIN_MODULE_ENTRY_C);
+    expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY_A);
+    expect(modules[2].module).toEqual(PLUGIN_MODULE_ENTRY_B);
+    expect(modules[3].module).toEqual(PLUGIN_MODULE_ENTRY_C);
   });
-
 
 });

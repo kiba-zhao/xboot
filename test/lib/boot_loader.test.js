@@ -28,7 +28,7 @@ describe('lib/boot_loader', () => {
     }
 
     expect(modules.length).toBe(1);
-    expect(modules[0].content).toEqual(BOOT_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENTRY);
   });
 
   it('load engine entry and plugin entry', () => {
@@ -42,9 +42,9 @@ describe('lib/boot_loader', () => {
     }
 
     expect(modules.length).toBe(3);
-    expect(modules[0].content).toEqual(BOOT_ENGINE_ENTRY);
-    expect(modules[1].content).toEqual(BOOT_PLUGIN_A_ENTRY);
-    expect(modules[2].content).toEqual(BOOT_PLUGIN_B_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENGINE_ENTRY);
+    expect(modules[1].module).toEqual(BOOT_PLUGIN_A_ENTRY);
+    expect(modules[2].module).toEqual(BOOT_PLUGIN_B_ENTRY);
 
   });
 
@@ -59,7 +59,7 @@ describe('lib/boot_loader', () => {
     }
 
     expect(modules.length).toBe(1);
-    expect(modules[0].content).toEqual(BOOT_ENGINE_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENGINE_ENTRY);
 
   });
 
@@ -81,7 +81,7 @@ describe('lib/boot_loader', () => {
 
     expect(modules.length).toBe(count);
     expect(modules.length).toBe(1);
-    expect(modules[0].content).toEqual(BOOT_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENTRY);
   });
 
   it('load engine entry and plugin entry', () => {
@@ -102,9 +102,9 @@ describe('lib/boot_loader', () => {
 
     expect(modules.length).toBe(count);
     expect(modules.length).toBe(3);
-    expect(modules[0].content).toEqual(BOOT_ENGINE_ENTRY);
-    expect(modules[1].content).toEqual(BOOT_PLUGIN_A_ENTRY);
-    expect(modules[2].content).toEqual(BOOT_PLUGIN_B_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENGINE_ENTRY);
+    expect(modules[1].module).toEqual(BOOT_PLUGIN_A_ENTRY);
+    expect(modules[2].module).toEqual(BOOT_PLUGIN_B_ENTRY);
 
   });
 
@@ -126,7 +126,7 @@ describe('lib/boot_loader', () => {
 
     expect(modules.length).toBe(count);
     expect(modules.length).toBe(1);
-    expect(modules[0].content).toEqual(BOOT_ENGINE_ENTRY);
+    expect(modules[0].module).toEqual(BOOT_ENGINE_ENTRY);
 
   });
 

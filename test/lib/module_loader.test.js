@@ -27,8 +27,8 @@ describe('lib/module_loader', () => {
     }
 
     expect(modules.length).toBe(2);
-    expect(modules[0].content).toEqual(APP_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[0].module).toEqual(APP_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY);
 
   });
 
@@ -43,8 +43,8 @@ describe('lib/module_loader', () => {
     }
 
     expect(modules.length).toBe(2);
-    expect(modules[0].content).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(APP_MODULE_ENTRY);
+    expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(APP_MODULE_ENTRY);
 
   });
 
@@ -59,8 +59,8 @@ describe('lib/module_loader', () => {
     }
 
     expect(modules.length).toBe(2);
-    expect(modules[0].content).toEqual(APP_MODULE_ENTRY);
-    expect(modules[1].content).toEqual(PLUGIN_MODULE_ENTRY);
+    expect(modules[0].module).toEqual(APP_MODULE_ENTRY);
+    expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY);
 
   });
 
@@ -89,8 +89,24 @@ describe('lib/module_loader', () => {
     }
 
     expect(modules.length).toBe(1);
-    expect(modules[0].content).toEqual(APP_MODULE_ENTRY);
+    expect(modules[0].module).toEqual(APP_MODULE_ENTRY);
 
+  });
+
+  it('load with expand false', () => {
+
+    const patterns = 'moduleDir';
+    const modulesOpts = [{ cwd: APP_PATH }, { cwd: PLUGIN_PATH }];
+    const loader = new ModuleLoader(patterns, modulesOpts, { expand: false });
+    const modules = [];
+    for (const m of loader) {
+      modules.push(m);
+    }
+
+    expect(modules.length).toBe(1);
+    expect(modules[0].filePath).toEqual(path.join(APP_PATH, patterns));
+    expect(modules[0].plugin).toBeFalsy();
+    expect(() => { return modules[0].module; }).toThrow();
   });
 
 });

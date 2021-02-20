@@ -17,21 +17,13 @@ export type loadMatchedModulesOpts = {
     cwd: string;
 };
 /**
- * 匹配的模块
+ * 检索匹配可选项
  */
-export type Module = {
+export type globbyOpts = {
     /**
-     * 模块文件绝对路径
+     * 是否展开目录
      */
-    path: string;
-    /**
-     * 模块内容
-     */
-    content: any;
-    /**
-     * 执行目录
-     */
-    cwd: string;
+    expand: boolean;
 };
 import { isString } from "lodash/common/lang";
 import { isArray } from "lodash/common/lang";
@@ -57,23 +49,18 @@ export function resolveModule(modulePath: string, opts: resolveModuleOpts): stri
  * @property {String} cwd 执行目录
  */
 /**
- * 匹配的模块
- * @typedef {Object} Module
- * @property {String} path 模块文件绝对路径
- * @property {any} content 模块内容
- * @property {String} cwd 执行目录
+ * 检索匹配可选项
+ * @typedef {Object} globbyOpts
+ * @property {Boolean} expand 是否展开目录
  */
 /**
  * 加载匹配的模块
  * @param {Array<String> | String} patterns 匹配模式
+ * @param {globbyOpts} opts 检索匹配可选项
  * @param {loadMatchedModulesOpts} modulesOpts 模块可选项
- * @yields {Module} 匹配的模块
+ * @yields {FileModule} 匹配的模块
  */
-export function loadMatchedModules(patterns: Array<string> | string, ...modulesOpts: loadMatchedModulesOpts): Generator<{
-    path: string;
-    content: any;
-    cwd: any;
-}, void, unknown>;
+export function loadMatchedModules(patterns: Array<string> | string, opts: globbyOpts, ...modulesOpts: loadMatchedModulesOpts): Generator<FileModule, void, unknown>;
 /**
  * 是否为匹配模式参数
  * @param {any} val 匹配模式参数值
@@ -85,6 +72,6 @@ export function isPatterns(val: any): boolean;
  * @param {Module} module 加载的模块对象
  * @param {Array<any>} args 初始化参数
  */
-export function setup(module: Module, ...args: Array<any>): void;
-declare const Module: Function;
+export function setup(module: any, ...args: Array<any>): void;
+import FileModule = require("./file_module");
 export { pkg, isString, isArray, isBoolean, isPlainObject, isFunction, defaults };

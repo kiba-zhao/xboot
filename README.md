@@ -78,8 +78,8 @@ const {BootLoader} = requre('xboot');
 const patterns = 'module.js';
 const opts = {};
 const loader = new BootLoader(patterns, opts);
-for(module of loader){
-    const {path,content,cwd} = module;
+for(item of loader){
+    const {path,module,cwd,filePath,plugin} = item;
     // 功能逻辑处理
 }
 ```

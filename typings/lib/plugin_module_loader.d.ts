@@ -15,6 +15,7 @@ declare class PluginModuleLoader extends Loader {
      * 模块加载器可选项
      * @typedef {Object} PluginModuleLoaderOpts
      * @property {Array<String> | String} mode 匹配模式
+     * @property {Boolean} expand 是否展开目录
      */
     /**
      * 构造方法
@@ -40,6 +41,10 @@ declare class PluginModuleLoader extends Loader {
          * 匹配模式
          */
         mode: Array<string> | string;
+        /**
+         * 是否展开目录
+         */
+        expand: boolean;
     });
     /**
      * 类实例迭代器方法
