@@ -27,18 +27,17 @@ describe('lib/plugin_module_loader', () => {
     for (const m of loader) {
       modules.push(m);
     }
-
     expect(modules.length).toBe(5);
     expect(modules[0].module).toEqual(PLUGIN_MODULE_ENTRY);
-    expect(modules[0].plugin).toBeTruthy();
+    expect(modules[0].plugin).toEqual('package');
     expect(modules[1].module).toEqual(PLUGIN_MODULE_ENTRY_A);
-    expect(modules[1].plugin).toBeTruthy();
+    expect(modules[1].plugin).toEqual('A');
     expect(modules[2].module).toEqual(PLUGIN_MODULE_ENTRY_B);
-    expect(modules[2].plugin).toBeTruthy();
+    expect(modules[2].plugin).toEqual('B');
     expect(modules[3].module).toEqual(PLUGIN_MODULE_ENTRY_C);
-    expect(modules[3].plugin).toBeTruthy();
+    expect(modules[3].plugin).toEqual('C');
     expect(modules[4].module).toEqual(PLUGIN_MODULE_ENTRY_D);
-    expect(modules[4].plugin).toBeTruthy();
+    expect(modules[4].plugin).toEqual('D');
 
   });
 

@@ -21,10 +21,10 @@ declare class FileModule {
      */
     get filePath(): string;
     /**
-     * 是否为插件
-     * @return {boolean}
+     * plugin.js中定义的插件key
+     * @return {String}
      */
-    get plugin(): boolean;
+    get plugin(): string;
     /**
      * 文件模块
      * @return {any}

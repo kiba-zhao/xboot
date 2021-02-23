@@ -105,7 +105,7 @@ describe('lib/module_loader', () => {
 
     expect(modules.length).toBe(1);
     expect(modules[0].filePath).toEqual(path.join(APP_PATH, patterns));
-    expect(modules[0].plugin).toBeFalsy();
+    expect(modules[0].plugin).not.toBeDefined();
     expect(() => { return modules[0].module; }).toThrow();
   });
 
